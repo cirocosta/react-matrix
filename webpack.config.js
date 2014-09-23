@@ -1,20 +1,36 @@
 'use strict';
 
 var webpack = require('webpack');
+var ETP = require('extract-text-webpack-plugin');
+var LIB_NAME = 'react-matrix';
 
 module.exports = {
   entry: './src/Matrix.jsx',
   output: {
     path: __dirname + '/dist',
-    filename: 'Matrix.js'
+    filename: LIB_NAME + '.js',
+    libraryTarget: "umd",
+    library: 'Matrix'
+  },
+  externals: {
+    "react": "React"
   },
   module: {
     loaders: [
-      // {test: /\.css$/, loader: 'style!css'},
-      // {test: /\.scss$/, loader: 'style!css!sass?' +
-      //                           'includePaths[]=' +
-      //                           __dirname + '/src'},
-      {test: /\.(js|jsx)$/, loader: 'jsx-loader?harmony'}
+      {
+        test: /\.css$/,
+        loader: ETP.extract("style-loader", "css-loader")
+      },
+      {
+        test: /\.scss$/,
+        loader: ETP.extract('style-loader',
+                            'css-loader!sass-loader?includePaths[]=' +
+                            __dirname + '/src')
+      },
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'jsx-loader?harmony'
+      }
     ]
   },
   plugins: [
@@ -22,6 +38,9 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
       }
+    }),
+    new ETP(LIB_NAME + '.css', {
+      allChunks: true
     })
   ]
 };

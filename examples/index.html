@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="../dist/react-matrix.css">
+</head>
+<body>
+
+  <h1>React Matrix!</h1>
+
+  <div id="matrix"></div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.11.2/react-with-addons.js"></script>
+  <script src="../dist/react-matrix.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.11.2/JSXTransformer.js"></script>
+  <script type="text/jsx">
+    /** @jsx React.DOM */
+    var update = React.addons.update;
+    var initialMatrix = [
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+    ];
+
+    var App = React.createClass({
+      getInitialState: function () {
+        return {
+          matrix: initialMatrix
+        }
+      },
+
+      componentDidMount: function  () {
+        setInterval(function () {
+          var row = (Math.random() * initialMatrix.length)|0;
+          var column = (Math.random() * initialMatrix[0].length)|0;
+          var updateRow = {matrix: {}};
+
+          updateRow.matrix[row] = {$apply: function (x) {
+            x[column] = 1;
+            return x;
+          }};
+
+          this.setState(update({matrix: initialMatrix}, updateRow));
+        }.bind(this), 100);
+      },
+
+      render: function () {
+        return (
+          <Matrix squareSize={20} matrix={this.state.matrix} />
+        );
+      }
+    });
+
+    React.renderComponent(
+      <App />,
+      document.getElementById('matrix')
+    );
+  </script>
+</body>
+</html>
