@@ -1,0 +1,42 @@
+{
+  "name": "react-matrix",
+  "version": "0.0.1",
+  "description": "React Component for representing Matrixes.",
+  "main": "index.js",
+  "homepage": "https://github.com/cirocosta/react-matrix",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test jest",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cirocosta/react-matrix.git"
+  },
+  "author": "Ciro S. Costa <ciro9758@gmail.com> (http://www.cirocosta.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cirocosta/react-matrix/issues"
+  },
+  "jest": {
+    "scriptPreprocessor": "./utils/jsx-transform.js",
+    "unmockedModulePathPatterns": [
+      "./node_modules/react"
+    ],
+    "testFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "testDirectoryName": "test"
+  },
+  "devDependencies": {
+    "jest-cli": "^0.1.18",
+    "react-tools": "^0.11.2",
+    "webpack": "^1.4.2"
+  },
+  "dependencies": {
+    "react": "^0.11.2"
+  }
+}
