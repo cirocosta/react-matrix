@@ -1,0 +1,32 @@
+{
+  "name": "react-matrix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cirocosta/react-matrix.git"
+  },
+  "author": "Ciro S. Costa <ciro9758@gmail.com> (http://www.cirocosta.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cirocosta/react-matrix/issues"
+  },
+  "homepage": "https://github.com/cirocosta/react-matrix",
+  "devDependencies": {
+    "css-loader": "^0.9.0",
+    "extract-text-webpack-plugin": "^0.3.1",
+    "jest-cli": "^0.1.18",
+    "jsx-loader": "^0.11.0",
+    "react-tools": "^0.11.2",
+    "sass-loader": "^0.2.0",
+    "style-loader": "^0.8.0",
+    "webpack": "^1.4.2"
+  },
+  "dependencies": {
+    "react": "^0.11.2"
+  }
+}
