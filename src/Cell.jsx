@@ -18,8 +18,8 @@ var Cell = React.createClass({
 
   handleClick () {
     this.props.onClick && this.props.onClick({
-      x: this.props.x,
-      y: this.props.y,
+      x: this.props.x/this.props.size,
+      y: this.props.y/this.props.size,
       state: this.props.state
     });
   },

@@ -16,8 +16,9 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.11.2/JSXTransformer.js"></script>
   <script type="text/jsx">
     /** @jsx React.DOM */
+    var SQUARE_SIZE = 20;
     var update = React.addons.update;
-    var initialMatrix = [
+    var INITIAL_MATRIX = [
       [0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0],
@@ -31,17 +32,28 @@
     var App = React.createClass({
       getInitialState: function () {
         return {
-          matrix: initialMatrix
+          matrix: INITIAL_MATRIX
         }
       },
 
       handleCellClick: function (cellState) {
-        console.log(cellState);
+        var y = (cellState.x);
+        var x = (cellState.y);
+        var updateRow = {matrix: {}};
+
+        updateRow.matrix[x] = {$apply: function (x) {
+          return (x[y] = 1, x);
+        }};
+
+        this.setState(update(
+          {matrix: INITIAL_MATRIX},
+          updateRow)
+        );
       },
 
       render: function () {
         return (
-          <Matrix squareSize={20}
+          <Matrix squareSize={SQUARE_SIZE}
                   matrix={this.state.matrix}
                   onCellClick={this.handleCellClick} />
         );
