@@ -35,24 +35,15 @@
         }
       },
 
-      componentDidMount: function  () {
-        setInterval(function () {
-          var row = (Math.random() * initialMatrix.length)|0;
-          var column = (Math.random() * initialMatrix[0].length)|0;
-          var updateRow = {matrix: {}};
-
-          updateRow.matrix[row] = {$apply: function (x) {
-            x[column] = 1;
-            return x;
-          }};
-
-          this.setState(update({matrix: initialMatrix}, updateRow));
-        }.bind(this), 100);
+      handleCellClick: function (cellState) {
+        console.log(cellState);
       },
 
       render: function () {
         return (
-          <Matrix squareSize={20} matrix={this.state.matrix} />
+          <Matrix squareSize={20}
+                  matrix={this.state.matrix}
+                  onCellClick={this.handleCellClick} />
         );
       }
     });

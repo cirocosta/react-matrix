@@ -12,7 +12,16 @@ var Cell = React.createClass({
     y: React.PropTypes.number.isRequired,
     size: React.PropTypes.number.isRequired,
     state: React.PropTypes.string.isRequired,
-    key: React.PropTypes.number.isRequired
+    key: React.PropTypes.number.isRequired,
+    onClick: React.PropTypes.func
+  },
+
+  handleClick () {
+    this.props.onClick && this.props.onClick({
+      x: this.props.x,
+      y: this.props.y,
+      state: this.props.state
+    });
   },
 
   render () {
@@ -22,6 +31,7 @@ var Cell = React.createClass({
             y={this.props.y}
             width={this.props.size}
             height={this.props.size}
+            onClick={this.handleClick}
             key={this.props.key} />
     );
   }

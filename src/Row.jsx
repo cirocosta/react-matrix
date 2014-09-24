@@ -14,6 +14,7 @@ var Row = React.createClass({
     dataRow: React.PropTypes.array.isRequired,
     squareSize: React.PropTypes.number.isRequired,
     key: React.PropTypes.number.isRequired,
+    onCellClick: React.PropTypes.func,
   },
 
   // TODO(ciro) - generalize this
@@ -35,6 +36,7 @@ var Row = React.createClass({
                    y={range(this.props.key)}
                    state={this.STATES[cel]}
                    size={this.props.squareSize}
+                   onClick={this.props.onCellClick}
                    key={this.props.key + 1 + j} />
     });
 

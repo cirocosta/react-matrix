@@ -13,7 +13,8 @@ var Grid = require('./Grid.jsx');
 var Matrix = React.createClass({
   propTypes: {
     squareSize: React.PropTypes.number.isRequired,
-    matrix: React.PropTypes.array.isRequired
+    matrix: React.PropTypes.array.isRequired,
+    onCellClick: React.PropTypes.func
   },
 
   render () {
@@ -24,6 +25,7 @@ var Matrix = React.createClass({
       <Svg width={width}
            height={height}>
         <Grid className="Grid"
+              onCellClick={this.props.onCellClick}
               matrix={this.props.matrix}
               squareSize={this.props.squareSize} />
       </Svg>
