@@ -7,7 +7,7 @@
 
 jest.dontMock('../src/Matrix.jsx');
 
-describe('LikeButton', () => {
+describe('Matrix', () => {
   var React;
   var TestUtils;
   var Matrix;
