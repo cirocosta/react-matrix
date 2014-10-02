@@ -14,6 +14,11 @@ var INITIAL_MATRIX = [
   [0,0,0,0,0,0,0,0],
 ];
 
+var STATES = {
+  '0': 'available',
+  '1': 'barrier'
+};
+
 function prettyMatrix (arr) {
   var repr = [];
 
@@ -50,7 +55,8 @@ var App = React.createClass({
       <div>
         <Matrix squareSize={SQUARE_SIZE}
                 matrix={this.state.matrix}
-                onCellClick={this.handleCellClick} />
+                onCellClick={this.handleCellClick}
+                cellStates={STATES} />
         <pre>{prettyMatrix(this.state.matrix)}</pre>
       </div>
     );

@@ -15,15 +15,7 @@ var Row = React.createClass({
     squareSize: React.PropTypes.number.isRequired,
     key: React.PropTypes.number.isRequired,
     onCellClick: React.PropTypes.func,
-  },
-
-  // TODO(ciro) - generalize this
-  STATES: {
-    '0': 'available',
-    '1': 'barrier',
-    '2': 'path',
-    '3': 'pipette',
-    '4': 'component'
+    cellStates: React.PropTypes.object
   },
 
   render () {
@@ -34,7 +26,7 @@ var Row = React.createClass({
     var cells = this.props.dataRow.map((cel, j) => {
       return <Cell x={range(j)}
                    y={range(this.props.key)}
-                   state={this.STATES[cel]}
+                   cellState={this.props.cellStates && this.props.cellStates[cel]}
                    size={this.props.squareSize}
                    onClick={this.props.onCellClick}
                    key={this.props.key + 1 + j} />

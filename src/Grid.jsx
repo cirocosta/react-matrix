@@ -11,7 +11,8 @@ var Grid = React.createClass({
   propTypes: {
     matrix: React.PropTypes.array.isRequired,
     squareSize: React.PropTypes.number.isRequired,
-    onCellClick: React.PropTypes.func
+    onCellClick: React.PropTypes.func,
+    cellStates: React.PropTypes.object
   },
 
   render () {
@@ -19,6 +20,7 @@ var Grid = React.createClass({
       <Row onCellClick={this.props.onCellClick}
            key={i}
            dataRow={row}
+           cellStates={this.props.cellStates}
            squareSize={this.props.squareSize} />
     );
 

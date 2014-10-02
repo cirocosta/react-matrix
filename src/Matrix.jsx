@@ -14,7 +14,8 @@ var Matrix = React.createClass({
   propTypes: {
     squareSize: React.PropTypes.number.isRequired,
     matrix: React.PropTypes.array.isRequired,
-    onCellClick: React.PropTypes.func
+    onCellClick: React.PropTypes.func,
+    cellStates: React.PropTypes.object
   },
 
   render () {
@@ -27,7 +28,8 @@ var Matrix = React.createClass({
         <Grid className="Grid"
               onCellClick={this.props.onCellClick}
               matrix={this.props.matrix}
-              squareSize={this.props.squareSize} />
+              squareSize={this.props.squareSize}
+              cellStates={this.props.cellStates} />
       </Svg>
     );
   }
