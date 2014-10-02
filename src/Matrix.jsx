@@ -4,7 +4,8 @@
 
 'use strict';
 
-require('./Matrix.scss');
+if (process.env.NODE_ENV !== 'test')
+  require('./Matrix.scss');
 
 var React = require('react');
 var Svg = require('./Svg.jsx');
@@ -14,6 +15,7 @@ var Matrix = React.createClass({
   propTypes: {
     squareSize: React.PropTypes.number.isRequired,
     matrix: React.PropTypes.array.isRequired,
+
     onCellClick: React.PropTypes.func,
     cellStates: React.PropTypes.object
   },
