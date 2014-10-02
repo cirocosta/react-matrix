@@ -1,6 +1,6 @@
 {
   "name": "react-matrix",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React Component for representing Matrixes.",
   "main": "dist/react-matrix.js",
   "homepage": "https://github.com/cirocosta/react-matrix",
