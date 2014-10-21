@@ -25,7 +25,7 @@ var Grid = React.createClass({
     );
 
     return (
-      <g>
+      <g className={'Grid'}>
         {rows}
       </g>
     );
