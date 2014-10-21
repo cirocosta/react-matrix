@@ -13,7 +13,9 @@ var Grid = require('./Grid.jsx');
 
 var Matrix = React.createClass({
   propTypes: {
-    squareSize: React.PropTypes.number.isRequired,
+    squareSize: React.PropTypes.oneOfType([
+      React.PropTypes.number,
+      React.PropTypes.array]).isRequired,
     matrix: React.PropTypes.array.isRequired,
 
     onCellClick: React.PropTypes.func,
@@ -21,8 +23,11 @@ var Matrix = React.createClass({
   },
 
   render () {
-    var width = this.props.squareSize * this.props.matrix[0].length;
-    var height = this.props.squareSize * this.props.matrix.length;
+    if (!Array.isArray(this.props.squareSize))
+      this.props.squareSize = [this.props.squareSize, this.props.squareSize];
+
+    var width = this.props.squareSize[0] * this.props.matrix[0].length;
+    var height = this.props.squareSize[1] * this.props.matrix.length;
 
     return (
       <Svg width={width}

@@ -12,20 +12,23 @@ var Cell = require('./Cell.jsx');
 var Row = React.createClass({
   propTypes: {
     dataRow: React.PropTypes.array.isRequired,
-    squareSize: React.PropTypes.number.isRequired,
+    squareSize: React.PropTypes.array.isRequired,
     key: React.PropTypes.number.isRequired,
     onCellClick: React.PropTypes.func,
     cellStates: React.PropTypes.object
   },
 
   render () {
-    var range = scale
+    var xRange = scale
       .linear([0, this.props.dataRow.length],
-              [0, this.props.squareSize * this.props.dataRow.length]);
+              [0, this.props.squareSize[0] * this.props.dataRow.length]);
+    var yRange = scale
+      .linear([0, this.props.dataRow.length],
+              [0, this.props.squareSize[1] * this.props.dataRow.length]);
 
     var cells = this.props.dataRow.map((cel, j) => {
-      return <Cell x={range(j)}
-                   y={range(this.props.key)}
+      return <Cell x={xRange(j)}
+                   y={yRange(this.props.key)}
                    cellState={this.props.cellStates && this.props.cellStates[cel]}
                    size={this.props.squareSize}
                    onClick={this.props.onCellClick}

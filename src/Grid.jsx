@@ -10,7 +10,7 @@ var Row = require('./Row.jsx');
 var Grid = React.createClass({
   propTypes: {
     matrix: React.PropTypes.array.isRequired,
-    squareSize: React.PropTypes.number.isRequired,
+    squareSize: React.PropTypes.array.isRequired,
     onCellClick: React.PropTypes.func,
     cellStates: React.PropTypes.object
   },
