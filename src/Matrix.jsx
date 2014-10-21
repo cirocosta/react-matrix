@@ -19,7 +19,10 @@ var Matrix = React.createClass({
     matrix: React.PropTypes.array.isRequired,
 
     onCellClick: React.PropTypes.func,
-    cellStates: React.PropTypes.object,
+    cellStates: React.PropTypes.oneOfType([
+      React.PropTypes.object,
+      React.PropTypes.array
+    ]),
     move: React.PropTypes.bool
   },
 

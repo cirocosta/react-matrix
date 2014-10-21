@@ -15,7 +15,10 @@ var Row = React.createClass({
     squareSize: React.PropTypes.array.isRequired,
     key: React.PropTypes.number.isRequired,
     onCellClick: React.PropTypes.func,
-    cellStates: React.PropTypes.object
+    cellStates: React.PropTypes.oneOfType([
+      React.PropTypes.object,
+      React.PropTypes.array
+    ])
   },
 
   render () {
