@@ -25,7 +25,8 @@ var Grid = React.createClass({
     );
 
     return (
-      <g className={'Grid'}>
+      <g className={'Grid'}
+         style={{transform: 'translateY(-' + this.props.squareSize[1] + 'px)'}}>
         {rows}
       </g>
     );

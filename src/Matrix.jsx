@@ -31,7 +31,7 @@ var Matrix = React.createClass({
 
     return (
       <Svg width={width}
-           height={height}>
+           height={height - this.props.squareSize[1]}>
         <Grid className="Grid"
               onCellClick={this.props.onCellClick}
               matrix={this.props.matrix}
