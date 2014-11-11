@@ -1,7 +1,3 @@
-/**
- * @jsx React.DOM
- */
-
 'use strict';
 
 var React = require('react');
@@ -13,7 +9,7 @@ var Row = React.createClass({
   propTypes: {
     dataRow: React.PropTypes.array.isRequired,
     squareSize: React.PropTypes.number.isRequired,
-    key: React.PropTypes.number.isRequired,
+    num: React.PropTypes.number.isRequired,
     onCellClick: React.PropTypes.func,
     cellStates: React.PropTypes.object
   },
@@ -25,11 +21,11 @@ var Row = React.createClass({
 
     var cells = this.props.dataRow.map((cel, j) => {
       return <Cell x={range(j)}
-                   y={range(this.props.key)}
+                   y={range(this.props.num)}
                    cellState={this.props.cellStates && this.props.cellStates[cel]}
                    size={this.props.squareSize}
                    onClick={this.props.onCellClick}
-                   key={this.props.key + 1 + j} />
+                   key={this.props.num + 1 + j} />
     });
 
     return (

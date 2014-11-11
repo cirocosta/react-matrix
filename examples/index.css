@@ -1,0 +1,12 @@
+.Matrix .Grid {
+  stroke: #bdc3c7; }
+.Matrix .Cell.available {
+  fill: #ecf0f1; }
+.Matrix .Cell.barrier {
+  fill: #e74c3c; }
+.Matrix .Cell.path {
+  fill: #3498db; }
+.Matrix .Cell.pipette {
+  fill: #34495e; }
+.Matrix .Cell.component {
+  fill: #1abc9c; }

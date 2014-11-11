@@ -1,6 +1,3 @@
-/**
- * @jsx React.DOM
- */
 var SQUARE_SIZE = 20;
 var update = React.addons.update;
 var INITIAL_MATRIX = [
@@ -63,7 +60,9 @@ var App = React.createClass({
   }
 });
 
-React.renderComponent(
+React.render(
   <App />,
   document.getElementById('matrix')
 );
+
+window.React = React;

@@ -1,9 +1,3 @@
-/**
- * @jsx React.DOM
- */
-
-'use strict';
-
 var React = require('react');
 var Row = require('./Row.jsx');
 
@@ -18,6 +12,7 @@ var Grid = React.createClass({
   render () {
     var rows = this.props.matrix.map((row, i) =>
       <Row onCellClick={this.props.onCellClick}
+           num={i}
            key={i}
            dataRow={row}
            cellStates={this.props.cellStates}
